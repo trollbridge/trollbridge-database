@@ -1,0 +1,27 @@
+﻿CREATE PROCEDURE [dbo].[UpdateSite]
+(
+      @CustomerId int
+    , @SiteId int
+    , @SiteName nvarchar(100) = ''
+    , @Address1 nvarchar(50) = ''
+    , @Address2 nvarchar (50) = ''
+    , @City nvarchar (50) = ''
+    , @State nvarchar (50) = ''
+    , @ZipCode nvarchar (10) = ''
+    , @Country nvarchar (50) = ''
+)
+AS
+    SET NOCOUNT ON
+    
+    IF EXISTS(SELECT 1 FROM dbo.[Sites] WHERE CustomerId = @CustomerId AND SiteId = @SiteId)
+    BEGIN
+        UPDATE dbo.[Sites]
+           SET [SiteName] = @SiteName
+             , [Address1] = @Address1
+             , [Address2] = @Address2
+             , [City] = @City
+             , [State] = @State
+             , [ZipCode] = @ZipCode
+             , [Country] = @Country
+        WHERE CustomerId = @CustomerId AND SiteId = @SiteId
+    END
