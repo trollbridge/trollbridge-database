@@ -11,5 +11,12 @@ The Database you will be using in your troll bridge solution essentially provide
   - AzurePoliciesForQueueAccess
   - AzureQueuePoliciesMap
   - Collector
+  - Customers
   - Sites
   - StoragInfoList
+
+In this tutorial we will go through the process of mapping an Event Hub token policy to a device site that has a customer Id, Site ID and MAC address that is used to obtain the Even Hub Shared Access Signature Credentials
+
+> For this example we will be editing the following tables in the database: 
+> Customers, Sites, Collector, AzurePoliciesForEventHub, AzureEventHubPoliciesMap
+
